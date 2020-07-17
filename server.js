@@ -5,8 +5,8 @@ const fs = require('fs')
 // const writeStream = fs.createWriteStream('links.txt');
 
 // fs.writeFile('links.txt')
-
- axios.get('https://www.reddit.tube/category/dankvideos/5').then((res) => {
+for(let page = 1; page <= 50; page ++){
+ axios.get(`https://www.reddit.tube/category/dankvideos/${page}`).then((res) => {
 	const $ = cheerio.load(res.data);
     //	console.log($('section.container').children('a')
 	//	.last()
@@ -41,10 +41,26 @@ const fs = require('fs')
 		// }
 		// fs.writeFileSync('./links.txt' , links);git 
 	})
-	console.log("done with scraping")
+	console.log(`done with scraping${page}`)
 	// fs.writeFileSync('./text.txt' , guide);
 
 	// let url = `https://www.reddit.tube${links3}`
 	// console.log(url)
 });
+}
 
+
+
+// const promises = [];
+
+// for(let page = 0; page <= 5; page ++){
+//      promises.push(
+//           axios({method: "get",url:`https://example.com?page=${page}`})
+//           .then(res => {
+//               // Parse your result with Cheerio or whatever you like
+//           })
+//      );
+// }
+
+// // You can pass the responses on this resolve if you want.
+// Promise.all(promises).then(...)
