@@ -1,0 +1,4 @@
+
+To download videos using Youtubedl
+
+youtube-dl -f best -a links.txt -o "/home/beellz/workspace/webScrape/reddit-scrape/videos/%(title)s%(id)s.%(ext)s"
