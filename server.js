@@ -2,11 +2,11 @@ const axios = require('axios')
 const cheerio = require('cheerio')
 const fs = require('fs')
 
-const writeStream = fs.createWriteStream('links.txt');
+// const writeStream = fs.createWriteStream('links.txt');
 
 // fs.writeFile('links.txt')
 
- axios.get('https://www.reddit.tube/category/dankvideos/1').then((res) => {
+ axios.get('https://www.reddit.tube/category/dankvideos/5').then((res) => {
 	const $ = cheerio.load(res.data);
     //	console.log($('section.container').children('a')
 	//	.last()
@@ -32,15 +32,16 @@ const writeStream = fs.createWriteStream('links.txt');
 		// console.log(links)
 		// console.log(links)
 		// console.log(links)
-		 writeStream.write(`${links}\n`);
+		//  writeStream.write(`${links}\n`);
 		// return {links}
 		// for (const section of data) {
 		// 	const sectionName = data.guide;
-		// fs.appendFile('links.txt', `${links}`)
+		 fs.appendFileSync('links.txt', `${links}\n`)
+		
 		// }
-		// fs.writeFileSync('./links.txt' , links);
+		// fs.writeFileSync('./links.txt' , links);git 
 	})
-
+	console.log("done with scraping")
 	// fs.writeFileSync('./text.txt' , guide);
 
 	// let url = `https://www.reddit.tube${links3}`
