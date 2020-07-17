@@ -5,8 +5,8 @@ const fs = require('fs')
 // const writeStream = fs.createWriteStream('links.txt');
 
 // fs.writeFile('links.txt')
-for(let page = 1; page <= 50; page ++){
- axios.get(`https://www.reddit.tube/category/dankvideos/${page}`).then((res) => {
+for(let page = 1; page <= `${process.argv[3]}`; page ++){
+ axios.get(`${process.argv[2]}/${page}`).then((res) => {
 	const $ = cheerio.load(res.data);
     //	console.log($('section.container').children('a')
 	//	.last()
@@ -36,7 +36,7 @@ for(let page = 1; page <= 50; page ++){
 		// return {links}
 		// for (const section of data) {
 		// 	const sectionName = data.guide;
-		 fs.appendFileSync('links.txt', `${links}\n`)
+		 fs.appendFileSync(`${process.argv[4]}.txt`, `${links}\n`)
 		
 		// }
 		// fs.writeFileSync('./links.txt' , links);git 

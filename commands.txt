@@ -1,4 +1,14 @@
+command to work with 
 
-To download videos using Youtubedl
+node server.js https://www.reddit.tube/category/orslokx 5 orslox
+1          2      3                                     4    5
+
+1 : node 
+2 : server.js (file name)
+3 : link 
+4 : pages to paginates
+5 : text page name
+
+ To download videos using Youtubedl
 
 youtube-dl -f best -a links.txt -o "/home/beellz/workspace/webScrape/reddit-scrape/videos/%(title)s%(id)s.%(ext)s"
